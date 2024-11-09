@@ -173,13 +173,13 @@ provisioner "remote-exec" {
       "chmod +x join_worker.sh",
       "sudo mv join_worker.sh ${var.share_folder}",
       "git clone https://github.com/ecastrojr/toshiro-shibakita.git",
-      "cd toshiro-shibakita-mysql",
-      "docker build -t toshiro-shibakita-mysql ./mysql",
-      "mkdir -p ${var.share_folder}/php",
-      "cp ./php/index.php ${var.share_folder}/php/",
-      "mkdir -p ${var.share_folder}/nginx",
-      "cp ./nginx/nginx.conf ${var.share_folder}/nginx/",
-      "docker stack deploy -c docker-compose.yaml  toshiro-shibakita"
+      "cd toshiro-shibakita",
+      "sudo docker build -t toshiro-shibakita-mysql ./mysql",
+      "sudo mkdir -p ${var.share_folder}/php",
+      "sudo cp ./php/index.php ${var.share_folder}/php/",
+      "sudo mkdir -p ${var.share_folder}/nginx",
+      "sudo cp ./nginx/nginx.conf ${var.share_folder}/nginx/",
+      "sudo docker stack deploy -c docker-compose.yaml  toshiro-shibakita"
 
      # "sudo mount -t cifs //${azurerm_storage_account.sa.name}.file.core.windows.net/${azurerm_storage_share.ss.name} /opt/docker-share -o vers=3.0,username=${azurerm_storage_account.sa.name},password=${azurerm_storage_account.sa.primary_access_key},dir_mode=0777,file_mode=0777",
     ]
